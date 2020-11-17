@@ -1,0 +1,20 @@
+.center{text-align: center;}
+
+.pozadi{background-color: dodgerblue;}
+
+
+h2{font-size: 400%;
+color: white;}
+
+.vysledek{
+    font-size: 200%;
+}
+
+.nav-link{
+    color: black;
+    font-size: 120%;
+}
+
+.active{
+    font-weight: bold;
+}

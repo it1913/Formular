@@ -8,7 +8,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Geometrické útvary</title>
 </head>
 
 <body>
@@ -26,40 +27,40 @@
 </div>-->
 
     <div class="container mt-3">
-        <h2>Toggleable Tabs</h2>
+        <div class="jumbotron pozadi">
+            <h2 class="center">Geometrické útvary</h2>
+        </div>
         <br>
         <!-- Nav tabs -->
         <ul class="nav nav-tabs">
             <li class="nav-item">
-                <a class="nav-link active" data-toggle="tab" href="#ctverec" onclick="setCtverec();">Čtverec</a>
+                <a class="nav-link active" data-toggle="tab" href="#ctverec" onclick="setCtverec();"><img
+                        src="img/ctverec.svg"> Čtverec</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#kruh" onclick="setKruh();">Kruh</a>
+                <a class="nav-link" data-toggle="tab" href="#kruh" onclick="setKruh();"><img src="img/kruh.svg"> Kruh</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#trojuhelnik" onclick="setTrojuhelnik();">Trojúhelník</a>
+                <a class="nav-link" data-toggle="tab" href="#trojuhelnik" onclick="setTrojuhelnik();"><img src="img/trojuhelnik.svg"> Rovnostranný trojúhelník</a>
             </li>
         </ul>
 
         <!-- Tab panes -->
         <div class="tab-content">
             <div id="ctverec" class="container tab-pane active"><br>
-                <h3>Čtverec</h3>
             </div>
 
             <div id="kruh" class="container tab-pane fade"><br>
-                <h3>Kruh</h3>
             </div>
 
             <div id="trojuhelnik" class="container tab-pane fade"><br>
-                <h3>Trojúhelník</h3>
             </div>
         </div>
         <form>
             <div class="form-group row">
-                <label for="velikost" class="col-sm-3 col-form-label">Velikost</label>
+                <label id="label" for="velikost" class="col-sm-3 col-form-label">Délka strany čtverce</label>
                 <div class="col-sm-9">
-                    <input type="number" class="form-control" name="velikost" id="velikost" value="10" />
+                    <input type="number" class="form-control" name="velikost" id="velikost" value="10" min="0" />
                 </div>
             </div>
             <div class="form-group row">
@@ -69,7 +70,7 @@
                     </button>
                 </div>
             </div>
-            <div id="vysledek" class="display-4"></div>
+            <div id="vysledek" class="display-4 vysledek"></div>
         </form>
 
     </div>
