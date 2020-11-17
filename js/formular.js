@@ -5,6 +5,7 @@ const trojuhelnik = 'trojuhelnik';
 let tvar = {
     teleso: ctverec,
     velikost: 0,
+    jednotka: "cm",
 
     obsah: function (teleso = this.teleso, velikost = this.velikost) {
         switch (teleso) {
@@ -49,52 +50,63 @@ function platnaHodnota(v) {
 
 function setCtverec() {
     tvar.teleso = ctverec;
+    tvar.jednotka = document.getElementById("jednotka").value;
     tvar.velikost = platnaHodnota(document.getElementById("velikost").value);
     document.getElementById('label').innerHTML = `Délka strany čtverce`;
-    document.getElementById('vysledek').innerHTML = `Obsah čtverce je ${tvar.obsah()} cm². <br>`;
-    document.getElementById('vysledek').innerHTML += `Obvod čtverce je ${tvar.obvod()} cm.<br>`;
-    document.getElementById('vysledek').innerHTML += `Úhlopříčka čtverce je ${tvar.vyskaUhlopricka()} cm.`;
+    document.getElementById('vysledek').innerHTML = `Obsah čtverce je ${tvar.obsah()} ${tvar.jednotka}². <br>`;
+    document.getElementById('vysledek').innerHTML += `Obvod čtverce je ${tvar.obvod()} ${tvar.jednotka}.<br>`;
+    document.getElementById('vysledek').innerHTML += `Úhlopříčka čtverce je ${tvar.vyskaUhlopricka()} ${tvar.jednotka}.`;
 }
 
 function setKruh() {
     tvar.teleso = kruh;
+    tvar.jednotka = document.getElementById("jednotka").value;
     tvar.velikost = platnaHodnota(document.getElementById("velikost").value);
     document.getElementById('label').innerHTML = `Velikost poloměru kruhu`;
-    document.getElementById('vysledek').innerHTML = `Obsah kruhu je ${tvar.obsah()} cm². <br>`;
-    document.getElementById('vysledek').innerHTML += `Obvod kruhu je ${tvar.obvod()} cm.`;
+    document.getElementById('vysledek').innerHTML = `Obsah kruhu je ${tvar.obsah()} ${tvar.jednotka}². <br>`;
+    document.getElementById('vysledek').innerHTML += `Obvod kruhu je ${tvar.obvod()} ${tvar.jednotka}.`;
 }
 
 function setTrojuhelnik() {
     tvar.teleso = trojuhelnik;
+    tvar.jednotka = document.getElementById("jednotka").value;
     tvar.velikost = platnaHodnota(document.getElementById("velikost").value);
     document.getElementById('label').innerHTML = `Délka strany trojúhelníku`;
-    document.getElementById('vysledek').innerHTML = `Obsah trojúhelníku je ${tvar.obsah()} cm². <br>`;
-    document.getElementById('vysledek').innerHTML += `Obvod trojúhelníku je ${tvar.obvod()} cm.<br>`;
-    document.getElementById('vysledek').innerHTML += `Délka výšky trojúhelníku je ${tvar.vyskaUhlopricka()} cm.`;
+    document.getElementById('vysledek').innerHTML = `Obsah trojúhelníku je ${tvar.obsah()} ${tvar.jednotka}². <br>`;
+    document.getElementById('vysledek').innerHTML += `Obvod trojúhelníku je ${tvar.obvod()} ${tvar.jednotka}.<br>`;
+    document.getElementById('vysledek').innerHTML += `Délka výšky trojúhelníku je ${tvar.vyskaUhlopricka()} ${tvar.jednotka}.`;
 }
 
-
-document.getElementById('vypocet').addEventListener('click', function () {
+let fun = function () {
     tvar.velikost = platnaHodnota(document.getElementById("velikost").value);
     document.getElementById("velikost").value = tvar.velikost;
-
+    tvar.jednotka = document.getElementById("jednotka").value;
     switch (tvar.teleso) {
         case ctverec:
-            document.getElementById('vysledek').innerHTML = `Obsah čtverce je ${tvar.obsah()} cm². <br>`;
-            document.getElementById('vysledek').innerHTML += `Obvod čtverce je ${tvar.obvod()} cm.<br>`;
-            document.getElementById('vysledek').innerHTML += `Úhlopříčka čtverce je ${tvar.vyskaUhlopricka()} cm.`;
+            document.getElementById('vysledek').innerHTML = `Obsah čtverce je ${tvar.obsah()} ${tvar.jednotka}². <br>`;
+            document.getElementById('vysledek').innerHTML += `Obvod čtverce je ${tvar.obvod()} ${tvar.jednotka}.<br>`;
+            document.getElementById('vysledek').innerHTML += `Úhlopříčka čtverce je ${tvar.vyskaUhlopricka()} ${tvar.jednotka}.`;
             break;
         case kruh:
-            document.getElementById('vysledek').innerHTML = `Obsah kruhu je ${tvar.obsah()} cm². <br>`;
-            document.getElementById('vysledek').innerHTML += `Obvod kruhu je ${tvar.obvod()} cm.`;
+            document.getElementById('vysledek').innerHTML = `Obsah kruhu je ${tvar.obsah()} ${tvar.jednotka}². <br>`;
+            document.getElementById('vysledek').innerHTML += `Obvod kruhu je ${tvar.obvod()} ${tvar.jednotka}.`;
             break;
         case trojuhelnik:
-            document.getElementById('vysledek').innerHTML = `Obsah trojúhelníku je ${tvar.obsah()} cm². <br>`;
-            document.getElementById('vysledek').innerHTML += `Obvod trojúhelníku je ${tvar.obvod()} cm.<br>`;
-            document.getElementById('vysledek').innerHTML += `Délka výšky trojúhelníku je ${tvar.vyskaUhlopricka()} cm.`;
+            document.getElementById('vysledek').innerHTML = `Obsah trojúhelníku je ${tvar.obsah()} ${tvar.jednotka}². <br>`;
+            document.getElementById('vysledek').innerHTML += `Obvod trojúhelníku je ${tvar.obvod()} ${tvar.jednotka}.<br>`;
+            document.getElementById('vysledek').innerHTML += `Délka výšky trojúhelníku je ${tvar.vyskaUhlopricka()} ${tvar.jednotka}.`;
             break;
     }
+};
 
-    /*document.getElementById('vysledek').innerHTML += `Uhlopricka je ${tvar.vyskaUhlopricka()} cm.`;*/
+document.getElementById('vypocet').addEventListener('click', function () {
+    fun();
 });
 
+document.getElementById('jednotka').addEventListener('click', function () {
+    fun();
+});
+
+document.getElementById('velikost').addEventListener('change', function () {
+    fun();
+});

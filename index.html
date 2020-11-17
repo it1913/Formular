@@ -13,35 +13,25 @@
 </head>
 
 <body>
-    <!--<div class="container">
-            <div class="form-group row">
-                <label for="age" class="col-sm-3 col-form-label">Těleso</label>
-                <div class="col-sm-9">
-                    <select class="form-control" name="teleso" id="teleso">
-                        <option value="ctverec">Čtverec</option>
-                        <option value="kruh">Kruh</option>
-                        <option value="trojuhelnik">Trojúhelník</option>
-                    </select>
-                </div>
-            </div>
-</div>-->
-
     <div class="container mt-3">
         <div class="jumbotron pozadi">
             <h2 class="center">Geometrické útvary</h2>
         </div>
         <br>
         <!-- Nav tabs -->
-        <ul class="nav nav-tabs">
+        <ul class="nav nav-pills">
             <li class="nav-item">
-                <a class="nav-link active" data-toggle="tab" href="#ctverec" onclick="setCtverec();"><img
+                <a class="nav-link active" data-toggle="tab" href="#ctverec" onclick="setCtverec();"><img alt="ctverec"
                         src="img/ctverec.svg"> Čtverec</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#kruh" onclick="setKruh();"><img src="img/kruh.svg"> Kruh</a>
+                <a class="nav-link" data-toggle="tab" href="#kruh" onclick="setKruh();"><img alt="kruh"
+                        src="img/kruh.svg">
+                    Kruh</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#trojuhelnik" onclick="setTrojuhelnik();"><img src="img/trojuhelnik.svg"> Rovnostranný trojúhelník</a>
+                <a class="nav-link" data-toggle="tab" href="#trojuhelnik" onclick="setTrojuhelnik();"><img
+                        alt="trojuhelnik" src="img/trojuhelnik.svg"> Rovnostranný trojúhelník</a>
             </li>
         </ul>
 
@@ -58,21 +48,27 @@
         </div>
         <form>
             <div class="form-group row">
-                <label id="label" for="velikost" class="col-sm-3 col-form-label">Délka strany čtverce</label>
-                <div class="col-sm-9">
+                <label id="label" for="velikost" class="col-sm-6 col-form-label">Délka strany čtverce</label>
+                <div class="col-sm-3">
                     <input type="number" class="form-control" name="velikost" id="velikost" value="10" min="0" />
+                </div>
+                <div class="col-sm-3">
+                    <select class="form-control" name="jednotka" id="jednotka">
+                        <option value="mm">mm</option>
+                        <option value="cm">cm</option>
+                        <option value="m">m</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group row">
-                <div class="offset-sm-3 col-sm-9">
-                    <button type="button" id="vypocet" class="btn btn-primary">
+                <div class="offset-sm-9 col-sm-3">
+                    <button type="button" id="vypocet" class="btn btn-primary" style="width: 100%;">
                         Vypočítat
                     </button>
                 </div>
             </div>
             <div id="vysledek" class="display-4 vysledek"></div>
         </form>
-
     </div>
     <script src="js/formular.js"></script>
 </body>
